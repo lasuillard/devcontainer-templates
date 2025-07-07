@@ -1,0 +1,20 @@
+{
+  "cSpell.words": [
+    "devcontainers",
+    "lasuillard",
+    "openapi",
+    "terragrunt"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "json.format.enable": true,
+  "yaml.format.enable": true,
+  "[shellscript]": {
+    "editor.defaultFormatter": "mkhl.shfmt"
+  }
+}
