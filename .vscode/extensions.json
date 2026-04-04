@@ -1,8 +1,7 @@
 {
   "recommendations": [
     "mads-hartmann.bash-ide-vscode",
-    "redhat.vscode-yaml",
-    "streetsidesoftware.code-spell-checker",
+    "dbaeumer.vscode-eslint",
     "editorconfig.editorconfig",
     "ms-azuretools.vscode-docker",
     "timonwong.shellcheck",

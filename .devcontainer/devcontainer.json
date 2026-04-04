@@ -1,19 +1,20 @@
 {
   "name": "lasuillard/devcontainer-templates",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:24-trixie",
   "onCreateCommand": "./.devcontainer/onCreateCommand.sh",
   "postStartCommand": "./.devcontainer/postStartCommand.sh",
   "updateContentCommand": "./.devcontainer/updateContentCommand.sh",
   "features": {
-    "ghcr.io/devcontainers/features/python:1": {},
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+      "moby": false
+    }
   },
   "customizations": {
     "vscode": {
       "extensions": [
         "mads-hartmann.bash-ide-vscode",
         "dbaeumer.vscode-eslint",
-        "streetsidesoftware.code-spell-checker",
         "editorconfig.editorconfig",
         "ms-azuretools.vscode-docker",
         "timonwong.shellcheck",
