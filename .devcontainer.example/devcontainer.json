@@ -1,12 +1,11 @@
 {
   "name": "lasuillard/devcontainer-templates",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:24-trixie",
-  "onCreateCommand": "./.devcontainer/onCreateCommand.sh",
-  "postStartCommand": "./.devcontainer/postStartCommand.sh",
-  "updateContentCommand": "./.devcontainer/updateContentCommand.sh",
+  "image": "mcr.microsoft.com/devcontainers/base:dev-trixie",
   "features": {
-    "ghcr.io/devcontainers-extra/features/pre-commit:2": {},
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {
+    "ghcr.io/devcontainers/features/nix:1": {
+      "extraNixConfig": "extra-experimental-features = nix-command flakes"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:3": {
       "moby": false
     }
   },
@@ -14,9 +13,7 @@
     "vscode": {
       "extensions": [
         "mads-hartmann.bash-ide-vscode",
-        "dbaeumer.vscode-eslint",
         "editorconfig.editorconfig",
-        "ms-azuretools.vscode-docker",
         "timonwong.shellcheck",
         "mkhl.shfmt"
       ]

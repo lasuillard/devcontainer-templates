@@ -2,21 +2,68 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
-
+    branches: [main]
   pull_request:
-    branches:
-      - main
-
-  workflow_dispatch:
+    branches: [main]
 
 jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
-      - uses: pre-commit-ci/lite-action@5d6cc0eb514c891a40562a58a8e71576c5c7fb43 # v1.1.0
-        if: always()
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25 # v22
+
+      - name: Lint shell scripts
+        run: |
+          git ls-files '*.sh' | xargs nix develop --command shellcheck
+
+  list-templates:
+    name: List templates
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    outputs:
+      templates: ${{ steps.list.outputs.templates }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: List templates
+        id: list
+        run: |
+          # Make JSON list of all templates; e.g. ["kubernetes-tools","openapi-generator-cli","opentofu"]
+          templates="$( \
+            git ls-files './src/*/devcontainer-template.json' \
+            | xargs --replace='{}' sh -c 'basename "$(dirname "{}")"' \
+            | jq --raw-input . \
+            | jq --slurp --compact-output .
+          )"
+
+          echo "templates=${templates}" | tee --append "$GITHUB_OUTPUT"
+
+  test:
+    name: Test (${{ matrix.templates }})
+    needs: [list-templates]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        templates: ${{ fromJSON(needs.list-templates.outputs.templates) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Test template
+        run: |
+          ./scripts/test-template.sh '${{ matrix.templates }}'
