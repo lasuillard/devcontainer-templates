@@ -1,6 +1,6 @@
 {
   "id": "nix-dind",
-  "version": "0.1s.0",
+  "version": "0.1.0",
   "name": "Nix Dev Container (DinD)",
   "description": "My standard Nix Dev Container with Docker-in-Docker.",
   "documentationURL": "https://github.com/lasuillard/devcontainer-templates/tree/main/src/nix-dind",
