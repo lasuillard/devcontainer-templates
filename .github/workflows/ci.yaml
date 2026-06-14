@@ -21,8 +21,7 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@ef8a148080ab6020fd15196c2084a2eea5ff2d25 # v22
 
       - name: Lint shell scripts
-        run: |
-          git ls-files '*.sh' | xargs nix develop --command shellcheck
+        run: git ls-files '*.sh' | xargs nix develop --command shellcheck
 
   list-templates:
     name: List templates
@@ -64,6 +63,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
+      - name: Install Dev Container CLI
+        run: npm install --global @devcontainers/cli
+
       - name: Test template
-        run: |
-          ./scripts/test-template.sh '${{ matrix.templates }}'
+        run: ./scripts/test-template.sh '${{ matrix.templates }}'
