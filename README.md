@@ -12,6 +12,21 @@ You can see the list of available templates and its content in the [src](./src) 
 $ devcontainer templates apply \
   --template-id ghcr.io/lasuillard/devcontainer-templates/nix:0 \
   --template-args '{"projectName": "lasuillard/my-new-project"}'
+[2 ms] @devcontainers/cli 0.87.0. Node.js v24.15.0. linux 6.12.90+deb13.1-amd64 x64.
+(node:16986) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[1011 ms] Files to omit: 'devcontainer-template.json, README.md, NOTES.md'
+{"files":["./.editorconfig","./.devcontainer/devcontainer.json","./.vscode/extensions.json","./.vscode/settings.json"]}
+
+$ ls --all --recursive
+.:
+.  ..  .devcontainer  .editorconfig  .vscode
+
+./.devcontainer:
+.  ..  devcontainer.json
+
+./.vscode:
+.  ..  extensions.json  settings.json
 ```
 
 If using VS Code with [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension, you can create new dev container with `Dev Containers: New Dev Container...` in command palette.
