@@ -68,7 +68,8 @@ echo "Registering cleanup handler on exit"
 function cleanup() {
   echo "Cleaning up"
   docker container ls --filter "label=${id_label}" --quiet |
-    xargs --no-run-if-empty docker container rm --force
+    xargs --no-run-if-empty \
+      docker container rm --force
 
   rm --recursive --force "${src_dir}"
 }

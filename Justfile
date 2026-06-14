@@ -17,7 +17,7 @@ alias up := update
 # =============================================================================
 
 # Run all checks (lint and test for A SINGLE TEMPLATE as a smoke test)
-ci: lint (test "color")
+ci: lint (test "nix")
 
 # Autoformat code
 format:

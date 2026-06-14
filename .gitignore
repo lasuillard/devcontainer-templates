@@ -101,3 +101,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/osx,linux,windows,visualstudiocode,dotenv,direnv
+
+!src/*/.devcontainer
+!src/*/.vscode
