@@ -36,3 +36,7 @@ If you use VS Code with the [Dev Containers](https://marketplace.visualstudio.co
 ## 🧑‍💻 Development
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for development instructions.
+
+## 📜 License
+
+This project is licensed under the MIT License.
