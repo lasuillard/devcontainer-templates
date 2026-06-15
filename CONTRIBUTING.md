@@ -16,7 +16,7 @@ This project uses the following tech stack:
 - `scripts/`: Helper scripts for development, testing, and release
 - `src/`: Source of each template
 - `test/`: Tests for each template
-- `flake.lock`, `flake.nix`: Flake configuration for development environment
+- `flake.nix`: Flake configuration for development environment
 - `Justfile`: Commands for development
 
 ## 🔧 Set up development environment
@@ -31,9 +31,9 @@ You need to have [Docker](https://www.docker.com/) installed. This is not instal
 
 This repository uses [Nix Flakes](https://nix.dev/concepts/flakes.html) to manage tools. The following tools will be automatically installed (you need `nix` installed):
 
-- `devcontainer`
-- [Just](https://just.systems/) (`just`)
 - `pre-commit`
+- `just`
+- `devcontainer`
 - `shellcheck`
 - `shfmt`
 
