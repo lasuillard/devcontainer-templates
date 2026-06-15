@@ -6,7 +6,7 @@ Personal [Dev Container Templates](https://containers.dev/implementors/templates
 
 ## 📋 Using templates
 
-You can see the list of available templates and their contents in the [src](./src) directory.
+You can see the list of available templates and their contents in the [src](./src) directory. To use a template, run the following commands:
 
 ```bash
 $ devcontainer templates apply \
