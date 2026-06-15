@@ -2,14 +2,20 @@ name: Release Dev Container Templates & Generate Documentation
 on:
   workflow_dispatch:
 
+  push:
+    branches: [main]
+    paths:
+      - src/**
+
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: false
 
 jobs:
   deploy:
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ (github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main') || github.event_name == 'push' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       packages: write
       contents: write
@@ -23,12 +29,12 @@ jobs:
 
       - name: Publish templates
         uses: devcontainers/action@1082abd5d2bf3a11abccba70eef98df068277772 # v1.4.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           publish-templates: true
           base-path-to-templates: ./src
           generate-docs: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create PR for Documentation
         env:
