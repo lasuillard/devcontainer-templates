@@ -58,4 +58,4 @@ Before you push your code, you need to verify your code changes if it follows wi
 
 ## 🚀 Releasing templates
 
-Once code is pushed to the repository, templates can be released via [release.yaml](./.github/workflows/release.yaml) workflow. You should manually dispatch the workflow to trigger the release process.
+Once code is pushed to the main branch of this repository, templates will be released via [release.yaml](./.github/workflows/release.yaml) workflow automatically, if `devcontainer-template.json` file is updated.
