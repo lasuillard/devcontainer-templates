@@ -6,7 +6,7 @@ Personal [Dev Container Templates](https://containers.dev/implementors/templates
 
 ## 📋 Using templates
 
-You can see the list of available templates and its content in the [src](./src) directory.
+You can see the list of available templates and their contents in the [src](./src) directory.
 
 ```bash
 $ devcontainer templates apply \
@@ -29,10 +29,10 @@ $ ls --all --recursive
 .  ..  extensions.json  settings.json
 ```
 
-If using VS Code with [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension, you can create new dev container with `Dev Containers: New Dev Container...` in command palette.
+If you use VS Code with the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension, you can create a new dev container with `Dev Containers: New Dev Container...` from the command palette.
 
 ![VS Code - New Dev Container](docs/vscode-new-devcontainer-from-template.png)
 
 ## 🧑‍💻 Development
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) file for development instructions.
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for development instructions.
