@@ -2,6 +2,8 @@ name: Release Dev Container Templates & Generate Documentation
 on:
   workflow_dispatch:
 
+  # Triggered every time when make changes to src/*/devcontainer-template.json file
+  # It will skip the template if it is already published for the same version, so it is safe
   push:
     branches: [main]
     paths:
