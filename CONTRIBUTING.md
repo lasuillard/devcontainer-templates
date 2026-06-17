@@ -11,8 +11,7 @@ This project uses the following tech stack:
 
 ## 📂 Key directory structure
 
-- `.devcontainer.example/`: Development environment configuration
-- `.vscode.example/`: Project-specific VS Code configuration example
+- `docs/`: Project documentation
 - `scripts/`: Helper scripts for development, testing, and release
 - `src/`: Source of each template
 - `test/`: Tests for each template
