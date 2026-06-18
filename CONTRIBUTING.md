@@ -15,8 +15,8 @@ This project uses the following tech stack:
 - `scripts/`: Helper scripts for development, testing, and release
 - `src/`: Source of each template
 - `test/`: Tests for each template
-- `Justfile`: Commands for development
 - `flake.nix`: Flake configuration for development environment
+- `Justfile`: Commands for development
 
 ## 🔧 Set up development environment
 
