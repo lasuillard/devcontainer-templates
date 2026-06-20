@@ -15,13 +15,13 @@ alias up := update
 # =============================================================================
 
 # Run all checks (lint and test for A SINGLE TEMPLATE as a smoke test)
-ci: lint (test "nix")
+ci: (format "yes") lint (test "nix")
 
 # Autoformat code
-format:
+[arg("check", long="check", value="yes")]
+format check="no":
     git ls-files --cached --others --exclude-standard '*.sh' \
-        | tee /dev/tty \
-        | xargs shfmt --write
+        | xargs shfmt {{ if check == "yes" { "--list" } else { "--list --write" } }}
 
 alias fmt := format
 
@@ -33,7 +33,7 @@ lint:
 
 # Test a template
 test template:
-    ./scripts/test-template.sh '{{template}}'
+    ./scripts/test-template.sh '{{ template }}'
 
 # =============================================================================
 # Utility
